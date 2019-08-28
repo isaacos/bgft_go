@@ -57,7 +57,12 @@ func App() *buffalo.App {
 		// Remove to disable this.
 		app.Use(popmw.Transaction(models.DB))
 
+		g := app.Group("/api/v1")
+		ur := &UserResource{}
+		g.GET("/users", ur.List)
+
 		app.GET("/", HomeHandler)
+
 	}
 
 	return app
