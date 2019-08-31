@@ -13,7 +13,7 @@ type User struct {
 	ID        uuid.UUID `json:"id" db:"id"`
 	CreatedAt time.Time `json:"created_at" db:"created_at"`
 	UpdatedAt time.Time `json:"updated_at" db:"updated_at"`
-	UserName	string		`json:"user_name" db:"user_name"`
+	UserName	string		`json:"username" db:"username"`
 	Bio				string		`json:"bio" db:"bio"`
 }
 

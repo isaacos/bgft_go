@@ -60,9 +60,12 @@ func App() *buffalo.App {
 		g := app.Group("/api/v1")
 		ur := &UserResource{}
 		g.GET("/users", ur.List)
+		g.POST("/users", ur.Create)
+
 
 		app.GET("/", HomeHandler)
 
+		app.POST("/sightings/create", SightingsCreate)
 	}
 
 	return app
