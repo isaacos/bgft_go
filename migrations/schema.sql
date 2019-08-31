@@ -77,7 +77,9 @@ ALTER TABLE public.sightings OWNER TO postgres;
 CREATE TABLE public.users (
     id uuid NOT NULL,
     created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL
+    updated_at timestamp without time zone NOT NULL,
+    username character varying(255) NOT NULL,
+    bio character varying(255) NOT NULL
 );
 
 
