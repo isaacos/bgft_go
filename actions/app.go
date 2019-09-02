@@ -55,17 +55,19 @@ func App() *buffalo.App {
 		// Wraps each request in a transaction.
 		//  c.Value("tx").(*pop.Connection)
 		// Remove to disable this.
-		app.Use(popmw.Transaction(models.DB))
+		 app.Use(popmw.Transaction(models.DB))
 
 		g := app.Group("/api/v1")
 		ur := &UserResource{}
 		g.GET("/users", ur.List)
 		g.POST("/users", ur.Create)
-
+		g.POST("/login", ur.Login)
 
 		app.GET("/", HomeHandler)
 
 		app.POST("/sightings/create", SightingsCreate)
+		app.GET("/sightings/index", SightingsIndex)
+
 	}
 
 	return app
